@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { InfoComponent } from './pages/info/info.component';
-import { StudentsComponent } from './pages/students/students.component';
-
+import { GroupListComponent } from './group/group-list/group-list.component';
+import { InfoComponent } from './info/info.component';
 
 const routes: Routes = [
   {
@@ -10,18 +9,10 @@ const routes: Routes = [
     component: InfoComponent
   },
   {
-    path: 'info',
-    component: InfoComponent
-  },
-  {
-    path: 'students',
-    component: StudentsComponent
-  },
-  {
-    path: 'students/:id',
-    component: StudentsComponent
+    path: 'group',
+    loadChildren: () => 
+    import('./group/group.module').then(m => m.GroupModule)
   }
-
 ];
 
 @NgModule({

@@ -1,0 +1,50 @@
+<hr>
+<h4 class="d-flex justify-content-center mt-5 mb-5">Поиск студентов</h4>
+<hr>
+<div class="container-fluid">
+    <div class="col-12 m-2">
+         <input type="text" class="form-control" [(ngModel)]="searchStr" placeholder="Искать по ФИО:">
+         <input type="text" class="form-control mt-4" [(ngModel)]="searchGroup" placeholder="Искать по группе"> 
+        <!-- <select formControlName="department" class="form-control mt-3" id="department"  [(ngModel)]="type" name="type">
+               <option [ngValue]="0"></option>
+               <option [ngValue]="myDepType.IT">IT</option>
+               <option [ngValue]="myDepType.biology">Биология</option>
+               <option [ngValue]="myDepType.sports">Спорт</option>
+               <option [ngValue]="myDepType.physics">Физика</option>
+         </select> -->
+      </div>
+
+  <table class="table table-sm mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Фамилия</th>
+      <th scope="col">Инициалы</th>
+      <th scope="col">Группа</th>
+      <th scope="col">Направление</th>
+      <th scope="col" class="text-right">
+        <button class="btn btn-primary" (click)="onAdd()">Добавить товар</button>
+        </th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let person of persons | group: searchGroup | search: searchStr">
+      <td>{{ person.name }}</td>
+      <td><p> {{ person.surname.charAt(0) }}. {{person.patronymic.charAt(0)}}.</p> </td>
+      <td>{{ person.group }}</td>
+      <td> <p class="card-text" *ngIf="person.department === 0">Биология</p>
+           <p class="card-text" *ngIf="person.department === 1">Физика</p>
+           <p class="card-text" *ngIf="person.department === 2">Спорт</p>
+           <p class="card-text" *ngIf="person.department === 3">IT</p>
+      </td>
+      <td class="text-right">
+        <button type="button" class="btn btn-info m-2" (click)="OnEdit(person.id)">Редактировать</button>
+
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+
+

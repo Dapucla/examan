@@ -98,6 +98,17 @@
       "department": 1,
       "group": "§1234t",
       "id": 10
+    },
+    {
+      "name": "DO",
+      "surname": "С",
+      "patronymic": "А",
+      "phone": "123124125125125125",
+      "email": "sunugugu@mail.ru",
+      "birthday": "2021-01-24",
+      "department": 1,
+      "group": "191-191",
+      "id": 12
     }
   ]
 }
